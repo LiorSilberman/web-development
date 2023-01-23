@@ -1,0 +1,45 @@
+body {
+    font-family: 'Assistant', sans-serif;
+}
+
+.form-wrap {
+    background-color: rgb(255, 225, 155);
+    border: 1px solid #999;
+    padding: 10px;
+    height: fit-content;
+}
+body.dark .form-wrap{
+    background-color: #5b5b5b;
+}
+.main-stuff {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rects-wrap {
+    width: 85%;
+    display: flex;
+}
+
+#rect-a {
+    position: relative;
+    background-color: rgb(127, 225, 255);
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+}
+#rect-a span{
+    color: blue;
+}
+#rect-b span{
+    color: blue;
+}
+#rect-b {
+    position: relative;
+    text-align: center;
+    background-color: rgb(255, 225, 155);
+    justify-content: center;
+    flex-direction: column;
+    display: none;
+}

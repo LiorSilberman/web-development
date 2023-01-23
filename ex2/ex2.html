@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Golden Ratio</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="golden_ratio.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <p>Lior Silberman | ID: 316456623</p>
+    <div>
+        <input id="light" type="radio" name="colors" value="light" onclick="change_background_color('light')"> <label>Light</label>
+        <input id="dark" type="radio" name="colors" value="dark" onclick="change_background_color('dark')"><label>Dark</label> 
+    </div>
+    <div class="container" style="text-align:center" name="colors">
+        <p>Assignment 2: Golden Ratio Calculator</p>
+        <img src="golden_ratio_image.png" alt="golden ratio example" id="bright" width="center" height="150">
+        <br>
+    </div>
+    
+    <div class="main-stuff">
+        <div class="form-wrap">
+          <form name="myForm">
+            <label for="first" style="color:black">a = </label>
+            <input type="text" id="first" name="first" onkeyup="show_rects_a()" placeholder="Number..."">
+            <br>
+            <br>
+            <label for="second" style="color:black">b = </label>
+            <input type="text" id="second" name="second" onkeyup="show_rects_b()" placeholder="Number...">
+            <br>
+            <br>
+            <span style="color:black">a+b = <span id="res"></span>
+            <span id="result"></span>
+          </form>
+        </div>
+        <div class="rects-wrap">
+            <div id="rect-a"><span>A</span></div>
+            <div id="rect-b"><span>B</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
