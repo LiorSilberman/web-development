@@ -1,0 +1,129 @@
+
+body {
+  background-image: url('food-back3.jpg');
+  background-repeat:calc();
+  background-size:cover;
+  height: 800px;
+}
+
+th, td {
+  padding: 3px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+p, ol,a{
+  font-size: 18px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #3f3333;
+}
+
+.table-container{
+  overflow-x: auto;
+  margin: 0 auto;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.col-md-6, .col-md-3 {
+  margin: 0 auto;
+  font-size: 16px;
+  max-width: 500px;
+  background-color: #3f3333;
+  padding: 20px;
+  color:bisque;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  margin: 10px;
+  overflow: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],input[type="tel"],textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  color: black;
+}
+.remove-item{
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background-color: #3e8e41;
+}
+
+.sub{
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sub:hover {
+  background-color: #3e8e41;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color:aliceblue;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace; 
+  background-color: #333;
+}
+
+.alert {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}

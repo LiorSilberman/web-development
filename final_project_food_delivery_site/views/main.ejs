@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Main Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="checkout_styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid"  style="background-color:#333">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="color:aliceblue" href="#">Delicious</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li id="signup-link"><a style="color:aliceblue" href="/signup">Sign Up</a></li>
+          <li id="products-link"></li>
+          <li id="checkout-link"></li>
+          <li id="order-link"></li>
+          <li id="login-link"><a style="color:aliceblue" href="/login">Login</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  
+  <div class="container" style="color:bisque;">
+    <h1 id="main-header-before-login">Welcome to the Delicious</h1>
+    <h1 id="main-header-after-login" style="display:none;">Welcome Back!</h1>
+    <p id="main-content-before-login">Please log in or sign up to continue</p>
+    <p id="main-content-after-login" style="display:none;">At Delicious, we believe that good food should be easy to find and even easier to enjoy. That's why we've curated a selection of the best local restaurants and chefs to offer you an unparalleled selection of delicious dishes, all available for delivery straight to your door.</p>
+    <br>
+    <span id="first-time" style="display:none;">
+    <h1 >First time here?</h1>
+    <p>To place an order, follow these simple steps:</p>
+		<ol>
+			<li>Visit our <a href="/products?targetPage=products">Products Page</a></li>
+			<li>Choose the products you want to order and add them to your cart</li>
+			<li>When you're ready to checkout, click on the cart icon to go to the <a href="/checkout?targetPage=checkout">Checkout Page</a></li>
+			<li>Fill in your details and click on "Order Now"</li>
+			<li>You will receive a confirmation email with your order details</li>
+      <br><br>
+		</ol>
+    <p>To view your order history, visit our <a href="/order?targetPage=order">Order Page</a></p>
+    <br><br>
+    </span>
+	
+  </div>
+
+  <footer>&copy; 2023 Lior Silberman. All rights reserved.</footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- function that changes the main page content based on login status   -->
+  <% if (showMainPageAfterLogin) { %>
+    
+    <script>
+    document.getElementById("main-header-before-login").style.display = "none";
+    document.getElementById("main-header-after-login").style.display = "block";
+    document.getElementById("main-content-before-login").style.display = "none";
+    document.getElementById("main-content-after-login").style.display = "block";
+    document.getElementById("first-time").style.display = "block";
+    document.getElementById("signup-link").innerHTML = '<a style="color:aliceblue" href="/main">Hello <%= name %> </a>';
+    document.getElementById("login-link").innerHTML = '<a style="color:aliceblue" href="/logout">Log out</a>';
+    let product_link = document.getElementById("products-link")
+    let checkout_link = document.getElementById("checkout-link")
+    let order_link = document.getElementById("order-link")
+    product_link.innerHTML = '<a style="color:aliceblue" href="/products">Products</a>';
+    product_link.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = "/products?targetPage=products";
+    });
+    checkout_link.innerHTML = '<a style="color:aliceblue" href="/checkout">Checkout</a>';
+    checkout_link.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = "/checkout?targetPage=checkout";
+    });
+    order_link.innerHTML = '<a style="color:aliceblue" href="/order">Order</a>';
+    order_link.addEventListener("click", function(event) {
+      event.preventDefault();
+      window.location.href = "/order?targetPage=order";
+    });
+    </script>
+  <% } %>
+</body>
+</html>

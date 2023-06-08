@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="products_styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid" style="background-color: #333;">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header"  >
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style=" color:aliceblue" href="/main">Delicious</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right" >
+            <li id="name"><a style=" color:aliceblue" href="">Hello <%= name %></a></li>
+            <li id="products-link"><a style=" color:aliceblue" href="/products">Products</a></li>
+            <li id="checkout-link"><a style=" color:aliceblue" href="/checkout">Checkout</a></li>
+            <li id="order-link"><a style=" color:aliceblue" href="/order">Order</a></li>
+            <li id="logout-link"><a style=" color:aliceblue" href="/logout">Log out</a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="chicken_breast.jpeg" class="product-image">
+                        <h6><b><u>Chicken breast:</u> 45&#8362</b></h6>
+                        <p class="product-name">Tender, juicy and bursting with flavor, our chicken breast meal is a delicious and healthy option at our restaurant.</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Chicken breast" name="product" />
+                            <input type="hidden" value="45" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="meatballs.jpg" class="product-image">
+                        <h6><b><u>Meatballs:</u> 50&#8362</b></h6>
+                        <p class="product-name">savory ground meat, breadcrumbs, and spices served with a variety of sauces. A versatile and comforting dish.</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Meatballs" name="product" />
+                            <input type="hidden" value="50" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="pastaMeat.jpg" class="product-image">
+                        <h6><b><u>Pasta Bolognese:</u> 55&#8362</b></h6>
+                        <p class="product-name">classic Italian dish with al dente pasta, hearty meat sauce, herbs, and Parmesan. Satisfying and flavorful.</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Pasta bolognese" name="product" />
+                            <input type="hidden" value="55" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="salad.jpg" class="product-image">
+                        <h6><b><u>Salad:</u> 30&#8362</b></h6>
+                        <p class="product-name">refreshing and healthy option with fresh veggies, toppings, and protein. Versatile and satisfying.</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Salad" name="product" />
+                            <input type="hidden" value="30" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="burger.jpg" class="product-image">
+                        <h6><b><u>Burger:</u> 60&#8362</b></h6>
+                        <p class="card-text">Juicy beef patty, lettuce, tomato, soft bun, and crispy fries on the side. Satisfaction guaranteed!</p>
+                        <form id="burger" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add" ><span class="added-item"></span>
+                            <input type="hidden" value="CheeseBurger" name="product" />
+                            <input type="hidden" value="60" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="pizza.jpg" class="product-image">
+                        <h6><b><u>Pizza:</u> 54&#8362</b></h6>
+                        <p class="card-text">crispy crust, tomato sauce, cheese, and your favorite toppings. Hot and satisfying comfort food.</p>
+                        <form id="pizza" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Pizza" name="product" />
+                            <input type="hidden" value="54" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="stake.jpg" class="product-image">
+                        <h6><b><u>Stake:</u> 100&#8362</b></h6>
+                        <p class="card-text">Savor a juicy, perfectly seasoned steak meal with your choice of sides, a classic dish for any occasion.</p>
+                        <form id="stake" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Stake" name="product" />
+                            <input type="hidden" value="100" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="cola.jpg" class="product-image">
+                        <h6><b><u>Coca cola:</u> 8&#8362</b></h6>
+                        <p class="card-text">Fresh Coca Cola</p>
+                        <form id="cola" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Coca cola" name="product" />
+                            <input type="hidden" value="8" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="cola_zero.jpg" class="product-image">
+                        <h6><b><u>Coca cola zero:</u> 8&#8362</b></h6>
+                        <p class="product-name">Fresh Cola Zero</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Coca cola zero" name="product" />
+                            <input type="hidden" value="8" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <img src="water.jpg" class="product-image">
+                        <h6><b><u>Mineral water: 6&#8362</u></b></h6>
+                        <p class="product-name">Fresh mineral water</p>
+                        <form id="zero" action="/products" method="post">
+                            <input type="button" value="-" class="quantity-button">
+                            <input type="number" value="1" name="quantity" class="quantity-input">
+                            <input type="button" value="+" class="quantity-button"><br>
+                            <input type="submit" class="add-to-cart-button" name="add" value="add"><span class="added-item"></span>
+                            <input type="hidden" value="Water" name="product" />
+                            <input type="hidden" value="6" name="price" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>&copy; 2023 Lior Silberman. All rights reserved.</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+        const minusButtons = document.querySelectorAll('.quantity-button[value="-"]');
+        const plusButtons = document.querySelectorAll('.quantity-button[value="+"]');
+        const addButtons = document.querySelectorAll('.add-to-cart-button[value="add"]');
+        let product_link = document.getElementById("products-link")
+        let checkout_link = document.getElementById("checkout-link")
+        let order_link = document.getElementById("order-link")
+        product_link.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = "/products?targetPage=products";
+        });
+        checkout_link.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = "/checkout?targetPage=checkout";
+        });
+        order_link.addEventListener("click", function(event) {
+            event.preventDefault();
+            window.location.href = "/order?targetPage=order";
+        });
+
+        addButtons.forEach((addButton) => {
+        addButton.addEventListener('click', (event) => {
+            const form = event.target.parentNode;
+            const quantityInput = form.querySelector('.quantity-input');
+            const added = form.querySelector('.added-item');
+            const quantity = parseInt(quantityInput.value);
+
+            fetch('/products', {})
+                .then(response => {
+                    if (response.ok) {
+                        added.innerHTML = ' &#10003';
+                        
+                        quantityInput.value = 1;
+                        
+                    } else {
+                    throw new Error('Request failed');
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
+        });
+            
+
+        minusButtons.forEach((minusButton) => {
+          minusButton.addEventListener('click', (event) => {
+            const input = event.target.parentNode.querySelector('.quantity-input');
+            const value = parseInt(input.value);
+            if (value > 1) {
+              input.value = value - 1;
+            }
+          });
+        });
+        
+        plusButtons.forEach((plusButton) => {
+          plusButton.addEventListener('click', (event) => {
+            const input = event.target.parentNode.querySelector('.quantity-input');
+            const value = parseInt(input.value);
+            input.value = value + 1;
+          });
+        });
+      </script>
+</body>
+</html>
+  

@@ -1,0 +1,134 @@
+body{
+    background-image: url('food-back3.jpg');
+    background-repeat:calc();
+    background-size:cover;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.quantity-button {
+    padding: 8px 16px;
+    background-color: #ccc;
+    color:#131313;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.quantity-input {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #0d3b66;
+}
+
+a{
+    font-size: 18px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.add-to-cart-button {
+padding: 1.1em 2em;
+padding: 8px 16px;
+background: none;
+border: 2px solid #fff;
+font-size: 15px;
+color: #131313;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+transition: all 0.3s;
+border-radius: 12px;
+background-color: #ecd448;
+font-weight: bolder;
+
+box-shadow: 0 2px 0 2px #000;
+}
+   
+.add-to-cart-button:before {
+content: "";
+position: absolute;
+width: 100px;
+height: 120%;
+background-color: #ff6700;
+top: 50%;
+transform: skewX(30deg) translate(-150%, -50%);
+transition: all 0.5s;
+}
+   
+.add-to-cart-button:hover {
+background-color: #4cc9f0;
+color: #fff;
+box-shadow: 0 2px 0 2px #0d3b66;
+}
+   
+.add-to-cart-button:hover::before {
+transform: skewX(30deg) translate(150%, -50%);
+transition-delay: 0.1s;
+}
+   
+.add-to-cart-button:active {
+transform: scale(0.9);
+} 
+
+.add-to-cart-button {
+    padding: 8px 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    width: 100%;
+    object-fit:contain; 
+    aspect-ratio: 3/2; 
+  }
+
+.product-image:hover {
+    transform: scale(1.5); 
+}
+
+.card-body {
+    object-fit: cover;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 280px;
+    height: 370px;
+    float: left;
+    overflow: auto;
+    color:bisque;
+    font-size: 16px;
+    font-weight:bold;
+    font-family: 'Courier New', Courier, monospace; 
+    box-shadow: rgba(50,50,93,0.25) 0px 6px 12px -2px, rgba(0,0,0,0.3) 0px 3px 7px -3px;
+}
+
+h6{
+    font-size: 18px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace; 
+    background-color: #333;
+  }
