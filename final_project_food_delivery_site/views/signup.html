@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="he">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik+Doodle+Shadow&family=Zeyada&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <form action="/signup" method="POST">
-      <h1>Sign up:</h1>
+      <h1>הרשמה</h1>
       <div>
-      <input type="text" id="name" name="name" placeholder="Name" required>
+      <input type="text" id="name" name="name" placeholder="שם" required>
       </div>
       <div>
-      <input type="email" id="email" name="email" placeholder="Email" required>
+      <input type="email" id="email" name="email" placeholder="מייל" required>
       </div>
       <div>
-      <input type="password" id="password" name="password" placeholder="Password" required>
+      <input type="password" id="password" name="password" placeholder="סיסמא" required>
       </div>
       <input type="hidden" name="targetPage" value="signup">
-      <input type="submit" value="Sign Up">
+      <input type="submit" value="הירשם">
       <div id="error-message" style="display: none;"></div>
-      <a href="/login">Login</a>
-      <a href="/main">Back to main page</a>
+      <a href="/login">כניסה</a>
+      <a href="/">חזרה לעמוד הראשי</a>
     </form>
   <footer>&copy; 2023 Lior Silberman. All rights reserved.</footer>
   

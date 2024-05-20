@@ -1,20 +1,151 @@
 
 body {
-  background-image: url('food-back3.jpg');
-  background-repeat:calc();
-  background-size:cover;
-  height: 800px;
+  background-image: url('food-back3.png');
+  background-repeat: no-repeat;
+  background-size: inherit;
+  /* background-position: center center;  Centers the background image */
+  padding-top: 70px;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width:auto;
+  height:auto;
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  width: auto;
+  height: auto;
+  background-color: none;
+}
+
+element.style {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #333;
+  font-size: large;
+  width: auto;
+  height: auto;
+  background-color: antiquewhite;
 }
 
 th, td {
   padding: 3px;
   text-align: center;
   border-bottom: 1px solid #ddd;
+  color: #e4cdb2;
 }
 
-p, ol,a{
-  font-size: 18px;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.ronit .navbar-brand{
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color:#e4cdb2;
+  font-size:16px;
+}
+
+.ronit .navbar-brand:hover{
+  color:#97938e;
+}
+
+.ronit h1 {
+  font-family: "Zeyada", cursive;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 60px;
+  margin-top: 5%;
+  text-align: center;
+  color: #915d40;
+  background-color: rgba(228,205,178,0.6);
+  margin: 0 auto 70px;
+  width: 70%;
+  margin-top: 70px;
+}
+
+/* Styles for tablets and desktops */
+@media (min-width: 768px) {
+  .ronit h1 {
+    font-size: 100px;
+  }
+}
+
+.navbar-default .navbar-nav>li>a {
+  color:#e4cdb2;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color:#97938e;
+}
+
+a{
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 16px;
+}
+
+
+
+.logo-ronit{
+  text-align: center;
+  margin-top: 70px;
+  
+}
+.logo-size {
+  width: 50%;
+  height: auto;
+  border-radius: 100%;
+}
+
+/* Styles for tablets and desktops */
+@media (min-width: 768px) {
+  .logo-size {
+    width: 25%;
+    height: auto;
+  }
+}
+
+/* header.h1{
+  background-color:  rgba(228,205,178,0.6);
+} */
+
+.about-me{
+  background-color:  rgba(228,205,178,0.6);
+  text-align: center;
+  margin: 0 auto;
+  width: 70%;
+  font-size: 24px;
+}
+
+/* Styles for tablets and desktops */
+@media (min-width: 768px) {
+  .about-me {
+    font-size: 30px;
+  }
+}
+
+p, ol,a, h1{
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  font-size: 16px;
+  /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
 th {
@@ -39,7 +170,7 @@ table{
   max-width: 500px;
   background-color: #3f3333;
   padding: 20px;
-  color:bisque;
+  color:#e4cdb2;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   flex-direction: column;
@@ -80,6 +211,67 @@ input[type="text"],input[type="tel"],textarea {
   background-color: #3e8e41;
 }
 
+button {
+  width: auto;
+  height: 50px;
+  cursor: pointer;
+  display: inline-grid;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: #e62222;
+}
+ 
+ button, button span {
+  transition: 200ms;
+ }
+ 
+ button .text {
+  color: white;
+  font-weight: bold;
+  margin-right: 40px;
+}
+ 
+ button .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  /* transform: translateX(110px); */
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ button svg {
+  width: 15px;
+  fill: #eee;
+ }
+ 
+button:hover {
+  background: #ff3636;
+ }
+ 
+ button:hover .text {
+  color: transparent;
+ }
+ 
+ button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ 
+ button:focus {
+  outline: none;
+ }
+ 
+ button:active .icon svg {
+  transform: scale(0.8);
+ }
+
 .sub{
   padding: 10px;
   border: none;
@@ -102,7 +294,7 @@ footer {
   width: 100%;
   color:aliceblue;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace; 
+  font-family: Roboto; 
   background-color: #333;
 }
 
@@ -126,4 +318,59 @@ footer {
 
 .close-btn:hover {
   color: red;
+}
+
+
+.iconCart img {
+  width: 30px;  /* Adjust the width as needed */
+  height: auto; /* This will maintain the aspect ratio */
+  -webkit-filter: invert(100%); 
+  filter: invert(100%);
+}
+
+.iconCart img:hover{
+  width: 33px;
+}
+
+.iconCart img:hover + .totalQuantity {
+  transform: translateX(8px);
+}
+
+header .totalQuantity {
+  position: absolute;
+  top: 0;
+  right: 3;
+  font-size: initial;
+  background-color: #b31010;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  font-family: roboto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(10px);
+}
+.btn-primary.fixed-button {
+  background-color: transparent; /* Make the button background transparent */
+  border: none; /* Remove the border */
+  color: inherit; /* Optional: Inherit the color from the parent element */
+}
+.fixed-button {
+  width: 50px;
+  height: auto;
+  position: fixed; /* Fix position to the viewport */
+  top: 4px;         /* Align to the top of the viewport */
+  right: 70px;    /* Distance from the right, adjust as needed */
+  z-index: 1030;  /* z-index value slightly higher than the navbar to ensure it's on top */
+}
+
+/* Styles for tablets and desktops */
+@media (min-width: 768px) {
+  .fixed-button {
+      top: 5px;
+      right: 425px; /* Adjusted for larger screens */
+  }
 }

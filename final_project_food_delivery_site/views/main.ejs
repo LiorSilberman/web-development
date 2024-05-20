@@ -1,91 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="he">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Main Page</title>
+  <title>דף הבית</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik+Doodle+Shadow&family=Zeyada&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="checkout_styles.css">
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid"  style="background-color:#333">
-      <!-- Brand and toggle get grouped for better mobile display -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="background-color:#632d18"> 
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">החלף ניווט</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style="color:aliceblue" href="#">Delicious</a>
+        <div class="ronit">
+          <a class="navbar-brand" href="/">Ronit's Cookies</a>
+        </div>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li id="signup-link"><a style="color:aliceblue" href="/signup">Sign Up</a></li>
+          <li id="signup-link"><a href="/signup">הרשמה</a></li>
           <li id="products-link"></li>
           <li id="checkout-link"></li>
           <li id="order-link"></li>
-          <li id="login-link"><a style="color:aliceblue" href="/login">Login</a></li>
-          
+          <li id="login-link"><a href="/login">כניסה</a></li>
         </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+      </div>
+    </div>
   </nav>
   
-  <div class="container" style="color:bisque;">
-    <h1 id="main-header-before-login">Welcome to the Delicious</h1>
-    <h1 id="main-header-after-login" style="display:none;">Welcome Back!</h1>
-    <p id="main-content-before-login">Please log in or sign up to continue</p>
-    <p id="main-content-after-login" style="display:none;">At Delicious, we believe that good food should be easy to find and even easier to enjoy. That's why we've curated a selection of the best local restaurants and chefs to offer you an unparalleled selection of delicious dishes, all available for delivery straight to your door.</p>
-    <br>
+  <div class="container" style="color:#5e311d;">
+    <% if (showMainPageAfterLogin) { %>
+    <header>
+      <button type="button" class="btn btn-primary fixed-button" data-toggle="modal" data-target="#ordersModal">
+          <div class="iconCart">
+              <img src="cart.png" alt="">
+              <div class="totalQuantity">
+              <% let ind = 0 %> 
+              <% let totalQuantity = 0 %> 
+              <% if (!countCheckout3) { %>
+                  <% checkout3.forEach(function(order) { %>
+                      <% order.product.forEach(function(pro) { %>
+                          <% totalQuantity += order.quantity[ind] %>
+                      <% ind += 1 %> 
+                      <% }); %>
+                  <% }); %>
+                  <%= totalQuantity %>
+              <% } else { %>
+                  0
+              <% } %>
+              </div>
+          </div>
+      </button>
+  </header>
+  <% } %>
+    <header class="ronit">
+      <h1>RONIT'S COOKIES</h1>
+    </header>
+    <h1 class="about-me" id="main-header-before-login">
+      קצת על העוגיות שלנו...<br>
+      שנים של ניסיון ועשייה הובילו אותנו למכור<br>
+      סוגים שונים של עוגיות טריות עבודת יד<br>
+      מלאות בטעם ממכר שלא תוכלו להפסיק<br>
+    </h1>
+    <h1 class="about-me" id="main-header-after-login" style="display:none;">ברוך שובך!
+    <!-- <p id="main-content-before-login">אנא התחבר או הרשם כדי להמשיך.</p> -->
+    <p id="main-content-after-login" style="display:none;">אצלנו בעולם של רונית, תוכל למצוא מגוון של עוגיות ביתיות שנעשות בעבודת יד על ידי רונית סילברמן. תוכל למצוא עוגיות בריאות, עוגיות לקפה ועוגות מכל הסוגים.</p>
     <span id="first-time" style="display:none;">
-    <h1 >First time here?</h1>
-    <p>To place an order, follow these simple steps:</p>
-		<ol>
-			<li>Visit our <a href="/products?targetPage=products">Products Page</a></li>
-			<li>Choose the products you want to order and add them to your cart</li>
-			<li>When you're ready to checkout, click on the cart icon to go to the <a href="/checkout?targetPage=checkout">Checkout Page</a></li>
-			<li>Fill in your details and click on "Order Now"</li>
-			<li>You will receive a confirmation email with your order details</li>
-      <br><br>
-		</ol>
-    <p>To view your order history, visit our <a href="/order?targetPage=order">Order Page</a></p>
-    <br><br>
+      <h1>בפעם הראשונה כאן?</h1>
+      <p>כדי לבצע הזמנה, עקוב אחר השלבים הבאים:</p>
+      <ol>
+        <li>בקר בדף ה<a href="/products?targetPage=products">מוצרים</a></li>
+        <li>בחר את המוצרים שברצונך להזמין והוסף אותם לעגלה</li>
+        <li>כאשר אתה מוכן לתשלום, לחץ על סמל העגלה כדי לעבור לדף ה<a href="/checkout?targetPage=checkout">תשלום</a></li>
+        <li>מלא את פרטיך ולחץ על "הזמן עכשיו"</li>
+        <li>תקבל אימייל עם פרטי ההזמנה שלך</li>
+      </ol>
+      <p>כדי לצפות בהיסטוריית ההזמנות שלך, בקר בדף <a href="/order?targetPage=order">ההזמנות</a></p>
     </span>
-	
+    </h1>
+    <% if (showMainPageAfterLogin) { %>
+    <!-- Modal -->
+    <div class="modal fade" id="ordersModal" tabindex="-1" role="dialog" aria-labelledby="ordersModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size:large; color: #333;" class="modal-title" id="ordersModalLabel">פרטי ההזמנה</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+          </div>
+          <div class="modal-body" id="ordersList">
+              <% let i = 0 %> 
+              <% if (!countCheckout3) { %>
+                  <% checkout3.forEach(function(order) { %>
+                      <% order.product.forEach(function(pro) { %>
+                          <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#333; font-size: large;"><%= pro %> - כמות: <%= order.quantity[i] %></p>
+                      <% i += 1 %> 
+                      <% }); %>
+                  <% }); %>
+                  
+              <% } else { %>
+                  <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#333; font-size: large;">לא נבחרו מוצרים עדיין.</p>
+              <% } %>
+          </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#333; font-size: large; background-color:antiquewhite; width: auto; height:auto"">סגור</button>
+          <a href="/checkout?targetPage=checkout" class="btn btn-secondary" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:#333; font-size: large; background-color:coral">
+            עבור לקופה
+          </a>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  <% } %>
+  </div>
+  <div class="logo-ronit">
+    <img src="LOGO_RONIT.png" alt="" class="logo-size">
   </div>
 
-  <footer>&copy; 2023 Lior Silberman. All rights reserved.</footer>
+  <footer>&copy; 2023 ליאור סילברמן. כל הזכויות שמורות.</footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   <!-- function that changes the main page content based on login status   -->
   <% if (showMainPageAfterLogin) { %>
     
     <script>
     document.getElementById("main-header-before-login").style.display = "none";
+    // document.getElementById("main-content-before-login").style.display = "none";
     document.getElementById("main-header-after-login").style.display = "block";
-    document.getElementById("main-content-before-login").style.display = "none";
     document.getElementById("main-content-after-login").style.display = "block";
     document.getElementById("first-time").style.display = "block";
-    document.getElementById("signup-link").innerHTML = '<a style="color:aliceblue" href="/main">Hello <%= name %> </a>';
-    document.getElementById("login-link").innerHTML = '<a style="color:aliceblue" href="/logout">Log out</a>';
+    document.getElementById("signup-link").innerHTML = '<a href="/">שלום <%= name %> </a>';
+    document.getElementById("login-link").innerHTML = '<a href="/logout">התנתק</a>';
     let product_link = document.getElementById("products-link")
     let checkout_link = document.getElementById("checkout-link")
     let order_link = document.getElementById("order-link")
-    product_link.innerHTML = '<a style="color:aliceblue" href="/products">Products</a>';
+    product_link.innerHTML = '<a href="/products">מוצרים</a>';
     product_link.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = "/products?targetPage=products";
     });
-    checkout_link.innerHTML = '<a style="color:aliceblue" href="/checkout">Checkout</a>';
+    checkout_link.innerHTML = '<a href="/checkout">קופה</a>';
     checkout_link.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = "/checkout?targetPage=checkout";
     });
-    order_link.innerHTML = '<a style="color:aliceblue" href="/order">Order</a>';
+    order_link.innerHTML = '<a href="/order">הזמנות</a>';
     order_link.addEventListener("click", function(event) {
       event.preventDefault();
       window.location.href = "/order?targetPage=order";

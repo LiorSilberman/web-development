@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html dir="rtl" lang="he">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Products</title>
+  <title>קופה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik+Doodle+Shadow&family=Zeyada&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="checkout_styles.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid" style="background-color: #333;">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" style="background-color: #632d18;">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
@@ -19,20 +25,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" style=" color:aliceblue" href="/main">Delicious</a>
+        <div class="ronit">
+          <a class="navbar-brand" href="/">Ronit's Cookies</a>
+        </div>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-            <li id="name"><a style=" color:aliceblue" href="">Hello <%= name %></a></li>
-            <li id="products-link"><a style=" color:aliceblue" href="/products">Products</a></li>
-            <li id="checkout-link"><a style=" color:aliceblue" href="/checkout">Checkout</a></li>
-            <li id="order-link"><a style=" color:aliceblue" href="/order">Order</a></li>
-            <li id="logout-link"><a style=" color:aliceblue" href="/logout">Log out</a></li>
-          
+            <li id="name"><a href="/">שלום <%= name %></a></li>
+            <li id="products-link"><a href="/products">מוצרים</a></li>
+            <li id="checkout-link"><a href="/checkout">קופה</a></li>
+            <li id="order-link"><a href="/order">הזמנות</a></li>
+            <li id="logout-link"><a href="/logout">התנתק</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
+   
   </nav>
   <div class="container">
     <div class="col-md-6">
@@ -40,27 +48,27 @@
       <% let totalPrice = 0 %> 
       <% let i = 0 %> 
       <% if (countCheckout) {%>
-        Cart is empty.<br>
-        Please visit our products page and add food to your cart.<br>
-        <b>OR</b><br>
-        See your order in order page.
+        העגלה ריקה.<br>
+        בבקשה, בקר בעמוד המוצרים ובצע הזמנה חדשה.<br>
+        <b>או</b><br>
+        ראה את ההזמנה שלך בדף ההזמנות.
       <% } %>
     
       
       <% checkout.forEach(function(order) { %>
         
       <table>
-        <b>Name:</b> <%= order.name %><br>
-        <b>Email:</b> <%= order.email %><br><br>
+        <b>שם:</b> <%= order.name %><br>
+        <b>מייל:</b> <%= order.email %><br><br>
         <form id="delete" action="/deleteAllCheckouts" method="post">
-          <input type="submit" value="Remove all items" class="remove-item" name="remove-item">
+          <button class="noselect"><span class="text">הסר כל הפריטים</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
         </form>
         <br><br>
         <tr>
-          <th>quantity</th>
-          <th>product</th>
+          <th>כמות</th>
+          <th>מוצר</th>
           <th>&#8362</th>
-          <th>remove item</th>
+          <th>הסר פריט</th>
         </tr>
           <% order.product.forEach(function(pro) { %>
           <tr>
@@ -70,7 +78,7 @@
             <td><%= order.price[i] %></td>
             <td>
               <form id="zero" action="/checkout" method="post">
-                <input type="submit" value="Remove item" class="remove-item" name="remove-item"> 
+                <button class="noselect"><span class="text">הסר פריט</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
                 <input type="hidden" value="<%= pro %>" name="product">
                 <input type="hidden" value="<%= i %>" name="index">
               </form>
@@ -83,27 +91,27 @@
       
       
         <br>
-        <b>Total price:</b> <%= totalPrice %>&#8362 
+        <b>סכום כולל:</b> <%= totalPrice %>&#8362 
         <% }); %>
       </ul>
     </div>
 
     <div class="col-md-6">
       <form id="checkout-form" action="/orders" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" placeholder="Enter your full name" required><br><br>
-        <label for="phone">Phone number:</label><br>
-        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required><br><br>
-        <label for="address">Address:</label><br>
-        <input type="text" id="address" name="address" placeholder="Enter your full address" required><br><br>
-        <label for="comments">Comments:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Add any special instructions or comments"></textarea><br><br>
-        <input type="submit" class="sub" value="Order now" id="buy-button" onclick="showAlert()" name="submit">
+        <label for="name">שם:</label><br>
+        <input type="text" id="name" name="name" placeholder="הכנס את השם המלא שלך" required><br><br>
+        <label for="phone">מספר פלאפון:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="הכנס את מספר הפלאפון שלך" required><br><br>
+        <label for="address">כתובת:</label><br>
+        <input type="text" id="address" name="address" placeholder="הכנס כתובת מלאה" required><br><br>
+        <label for="comments">הערות:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50" placeholder="הכנס הערות או בקשות מיוחדות"></textarea><br><br>
+        <input type="submit" class="sub" value="הזמן עכשיו" id="buy-button" onclick="showAlert()" name="submit">
         <input type="hidden" class="price" value="<%= totalPrice %>" name="totalPrice">
       </form>
     </div>
   </div>
-  <footer>&copy; 2023 Lior Silberman. All rights reserved.</footer>
+  <footer>&copy; 2023 ליאור סילברמן. כל הזכויות שמורות.</footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -114,7 +122,7 @@
       const price = document.querySelector('[name="totalPrice"]').value;
       const form = document.querySelector('#checkout-form');
       const name = form.querySelector('[name="name"]');
-      product_link.innerHTML = '<a style=" color:aliceblue"  href="/products">Products</a>';
+      product_link.innerHTML = '<a href="/products">מוצרים</a>';
       product_link.addEventListener("click", function(event) {
         event.preventDefault();
         window.location.href = "/products?targetPage=products";
@@ -133,7 +141,7 @@
       function showAlert() {
         
         if (price > 0 && form.checkValidity()){
-          alert('Order received. Cooking in progress. Email sent to you with all details.');
+          alert('ההזמנה התקבלה. מייל נשלח אלייך עם פרטי ההזמנה.');
         }
       }
 
